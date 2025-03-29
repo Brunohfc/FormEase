@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:relatorio/screens/accidentsWidget.dart';
+import 'package:relatorio/screens/preventivaWidget.dart';
 
 import 'forms.dart';
 
@@ -13,6 +15,7 @@ class _MyAppBarWidgetState extends State<MyAppBarWidget> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Color.fromARGB(52, 35, 156, 109),
@@ -28,7 +31,12 @@ class _MyAppBarWidgetState extends State<MyAppBarWidget> {
           ),
           centerTitle: true,
         ),
-        body: Forms(),
+        body: ListView(
+          children: [
+            AccidentsWidget(),
+            PreventiveWidget()
+          ],
+        ),
       ),
     );
   }

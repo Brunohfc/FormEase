@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:relatorio/screens/accidents.dart';
+import 'package:relatorio/model/providers/accidentsProvider.dart';
 import 'package:relatorio/screens/corretiva.dart';
-import 'package:relatorio/screens/preventiva.dart';
+import 'package:relatorio/model/providers/preventivaProvider.dart';
 
 import 'date_picker.dart';
 import 'formatted_text.dart';
@@ -37,9 +37,7 @@ class _FormsState extends State<Forms> {
           ),
           Container(),
           DatePickerScreen(),
-          PreventiveVehicle(),
           CorrectiveVehicle(),
-          Accidents(),
           Availables(),
           SizedBox(height: 20,),
           ElevatedButton(
