@@ -1,28 +1,26 @@
 import 'package:flutter/material.dart';
 
-import '../model/vehicle.dart';
-
-class PreventiveVehicle extends StatefulWidget {
-  const PreventiveVehicle({super.key});
+class Accidents extends StatefulWidget {
+  const Accidents({super.key});
 
   @override
-  State<PreventiveVehicle> createState() => _PreventiveVehicleState();
+  State<Accidents> createState() => _AccidentsState();
 }
 
-class _PreventiveVehicleState extends State<PreventiveVehicle> {
+class _AccidentsState extends State<Accidents> {
   final List<Map<String, TextEditingController>> _controllers = [];
-  bool _isExpanded = true;
+  bool _isExpanded = false;
 
-  _createField() {
+  _createAccidents(){
     setState(() {
       _controllers.add({
-        'title': TextEditingController(),
-        'description': TextEditingController(),
+        'title' : TextEditingController(),
+        'description': TextEditingController()
       });
     });
   }
 
-  _removeField() {
+  _removeAccidents(){
     setState(() {
       _controllers.removeLast();
     });
@@ -34,29 +32,33 @@ class _PreventiveVehicleState extends State<PreventiveVehicle> {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
-
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text("Qtd Acidentes ${_controllers.length}"),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size(80, 15),
+                  fixedSize: Size(130, 0),
                   backgroundColor: Colors.green,
                 ),
-                onPressed: _createField,
+                onPressed: _createAccidents,
                 child: const Text(
                     style:TextStyle(color: Colors.white),
-                    '+ Preventiva'
+                    '+ Acidentes'
                 ),
               ),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    minimumSize: Size(80, 15),
+                    fixedSize: Size(130, 0),
                     backgroundColor: Colors.redAccent,
                   ),
-                  onPressed: _removeField, child: Text(
+                  onPressed: _removeAccidents, child: Text(
                   style: TextStyle(color: Colors.white),
-                  "- Preventiva")
+                  "- Acidentes")
               ),
               IconButton(
                   onPressed: (){
@@ -65,12 +67,11 @@ class _PreventiveVehicleState extends State<PreventiveVehicle> {
                     });
                   },
                   icon: Icon(
-                      _isExpanded ? Icons.expand_less : Icons.expand_more
+                      _isExpanded ? Icons.expand_more : Icons.expand_less
                   )
               )
             ],
           ),
-          const SizedBox(height: 20),
 
           AnimatedContainer(
             duration: const Duration(milliseconds: 500 ),
@@ -91,7 +92,7 @@ class _PreventiveVehicleState extends State<PreventiveVehicle> {
                           TextFormField(
                             controller: controllers['title'],
                             decoration: const InputDecoration(
-                              labelText: 'Título do Veículo',
+                              labelText: 'Título do Acidente',
                               border: OutlineInputBorder(),
                             ),
                           ),
@@ -99,7 +100,7 @@ class _PreventiveVehicleState extends State<PreventiveVehicle> {
                           TextFormField(
                             controller: controllers['description'],
                             decoration: const InputDecoration(
-                              labelText: 'Descrição do Veículo',
+                              labelText: 'Descrição do Acidente',
                               border: OutlineInputBorder(),
                             ),
                           ),

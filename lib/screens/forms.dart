@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:relatorio/screens/preditiva.dart';
-
+import 'package:relatorio/screens/accidents.dart';
+import 'package:relatorio/screens/corretiva.dart';
+import 'package:relatorio/screens/preventiva.dart';
 
 import 'date_picker.dart';
+import 'formatted_text.dart';
+import 'numberPickerAvaillable.dart';
 
 class Forms extends StatefulWidget {
   const Forms({super.key});
@@ -12,9 +15,8 @@ class Forms extends StatefulWidget {
 }
 
 class _FormsState extends State<Forms> {
-  //final controller = BoardDateTimeController();
 
-  DateTime date = DateTime.now();
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +37,27 @@ class _FormsState extends State<Forms> {
           ),
           Container(),
           DatePickerScreen(),
-          PreventiveVehicle()
+          PreventiveVehicle(),
+          CorrectiveVehicle(),
+          Accidents(),
+          Availables(),
+          SizedBox(height: 20,),
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
+              ),
+              onPressed: (){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const FormattedTextWidget()),
+                );
+              },
+              child: Text("Gerar Relatório"))
         ],
       ),
-    ));
+
+    )
+    );
   }
 }
