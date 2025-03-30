@@ -3,10 +3,11 @@ import 'package:relatorio/screens/accidentsWidget.dart';
 import 'package:relatorio/screens/availablesEquipamentsWidget.dart';
 import 'package:relatorio/screens/corretiveWidget.dart';
 import 'package:relatorio/screens/datePickerWidget.dart';
+import 'package:relatorio/screens/employeesWidget.dart';
 import 'package:relatorio/screens/preventivaWidget.dart';
 
 import '../model/providers/datePickerProvider.dart';
-import 'forms.dart';
+import '../model/providers/EmployeesProvider.dart';
 
 class MyAppBarWidget extends StatefulWidget {
   const MyAppBarWidget({super.key});
@@ -35,14 +36,19 @@ class _MyAppBarWidgetState extends State<MyAppBarWidget> {
           ),
           centerTitle: true,
         ),
-        body: ListView(
-          children: [
-            AccidentsWidget(),
-            PreventiveWidget(),
-            Corretivewidget(),
-            DatePickerWidget(),
-            AvailablesEquipamentsWidget()
-          ],
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView(
+            children: [
+              Employeeswidget(),
+              DatePickerWidget(),
+              PreventiveWidget(),
+              Corretivewidget(),
+              AccidentsWidget(),
+              AvailablesEquipamentsWidget(),
+
+            ],
+          ),
         ),
       ),
     );

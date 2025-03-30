@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:relatorio/model/providers/EmployeesProvider.dart';
 import 'package:relatorio/model/providers/accidentsProvider.dart';
 import 'package:relatorio/model/providers/availableEquipamentsProvider.dart';
 import 'package:relatorio/model/providers/corretiveProvider.dart';
@@ -17,7 +18,8 @@ void main() {
     ChangeNotifierProvider<PreventiveVehicleProvider>(create: (_) => PreventiveVehicleProvider()),
     ChangeNotifierProvider(create: (_) => CorrectiveVehicleProvider()),
     ChangeNotifierProvider(create: (_) => DatePickerProvider()),
-    ChangeNotifierProvider(create: (_) => AvailablesEquipamentsProvider())
+    ChangeNotifierProvider(create: (_) => AvailablesEquipamentsProvider()),
+    ChangeNotifierProvider(create: (_) => EmployessProvider())
   ],
     child: MyApp(),
   ) );

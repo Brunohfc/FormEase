@@ -11,89 +11,86 @@ class PreventiveWidget extends StatelessWidget {
     return
       Consumer<PreventiveVehicleProvider>(
         builder: (context, preventive, child){
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Text("Qtd Preventiva ${preventive.preventiveLength()}"),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    ElevatedButton(
+          return Column(
+            children: [
+              Row(
+                children: [
+                  Text("Qtd Preventiva ${preventive.preventiveLength()}"),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: Size(130, 0),
+                      backgroundColor: Colors.green,
+                    ),
+                    onPressed: preventive.createField,
+                    child: const Text(
+                        style: TextStyle(color: Colors.white), '+ Preventiva'),
+                  ),
+                  ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         fixedSize: Size(130, 0),
-                        backgroundColor: Colors.green,
+                        backgroundColor: Colors.redAccent,
                       ),
-                      onPressed: preventive.createField,
-                      child: const Text(
-                          style: TextStyle(color: Colors.white), '+ Preventiva'),
-                    ),
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          fixedSize: Size(130, 0),
-                          backgroundColor: Colors.redAccent,
-                        ),
-                        onPressed: preventive.removeField,
-                        child: Text(
-                            style: TextStyle(color: Colors.white), "- Preventiva")),
-                    // IconButton(
-                    //     onPressed: () {
-                    //
-                    //     },
-                    //     icon:
-                    //     Icon(preventive.isExpanded() ? Icons.expand_more : Icons.expand_less)
-                    // )
-                  ],
-                ),
-                // AnimatedContainer(
-                //   duration: const Duration(milliseconds: 500),
-                //   height: preventive.isExpanded() ? 300 : 0,
-                //   child: preventive.isExpanded()
-                //       ? Expanded(
-                //     child: ListView.builder(
-                //       shrinkWrap: true,
-                //       itemCount: preventive.preventiveLength(),
-                //       itemBuilder: (context, index) {
-                //         final controllers = preventive.controllers[index];
-                //         return Card(
-                //           margin: const EdgeInsets.symmetric(vertical: 8.0),
-                //           child: Padding(
-                //             padding: const EdgeInsets.all(16.0),
-                //             child: Column(
-                //               crossAxisAlignment: CrossAxisAlignment.start,
-                //               children: [
-                //                 TextFormField(
-                //                   controller: controllers['title'],
-                //                   decoration: const InputDecoration(
-                //                     labelText: 'Título do Veículo',
-                //                     border: OutlineInputBorder(),
-                //                   ),
-                //                 ),
-                //                 const SizedBox(height: 10),
-                //                 TextFormField(
-                //                   controller: controllers['description'],
-                //                   decoration: const InputDecoration(
-                //                     labelText: 'Descrição do Veículo',
-                //                     border: OutlineInputBorder(),
-                //                   ),
-                //                 ),
-                //               ],
-                //             ),
-                //           ),
-                //         );
-                //       },
-                //     ),
-                //   )
-                //       : const SizedBox(
-                //     height: 10,
-                //   ),
-                // ),
-              ],
-            ),
+                      onPressed: preventive.removeField,
+                      child: Text(
+                          style: TextStyle(color: Colors.white), "- Preventiva")),
+                  // IconButton(
+                  //     onPressed: () {
+                  //
+                  //     },
+                  //     icon:
+                  //     Icon(preventive.isExpanded() ? Icons.expand_more : Icons.expand_less)
+                  // )
+                ],
+              ),
+              // AnimatedContainer(
+              //   duration: const Duration(milliseconds: 500),
+              //   height: preventive.isExpanded() ? 300 : 0,
+              //   child: preventive.isExpanded()
+              //       ? Expanded(
+              //     child: ListView.builder(
+              //       shrinkWrap: true,
+              //       itemCount: preventive.preventiveLength(),
+              //       itemBuilder: (context, index) {
+              //         final controllers = preventive.controllers[index];
+              //         return Card(
+              //           margin: const EdgeInsets.symmetric(vertical: 8.0),
+              //           child: Padding(
+              //             padding: const EdgeInsets.all(16.0),
+              //             child: Column(
+              //               crossAxisAlignment: CrossAxisAlignment.start,
+              //               children: [
+              //                 TextFormField(
+              //                   controller: controllers['title'],
+              //                   decoration: const InputDecoration(
+              //                     labelText: 'Título do Veículo',
+              //                     border: OutlineInputBorder(),
+              //                   ),
+              //                 ),
+              //                 const SizedBox(height: 10),
+              //                 TextFormField(
+              //                   controller: controllers['description'],
+              //                   decoration: const InputDecoration(
+              //                     labelText: 'Descrição do Veículo',
+              //                     border: OutlineInputBorder(),
+              //                   ),
+              //                 ),
+              //               ],
+              //             ),
+              //           ),
+              //         );
+              //       },
+              //     ),
+              //   )
+              //       : const SizedBox(
+              //     height: 10,
+              //   ),
+              // ),
+            ],
           );
         }
       );
