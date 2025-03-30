@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../model/providers/availlableEquipamentsProvider.dart';
+import '../model/providers/availableEquipamentsProvider.dart';
 
 class AvailablesEquipamentsWidget extends StatelessWidget {
   const AvailablesEquipamentsWidget({super.key});
@@ -21,15 +21,15 @@ class AvailablesEquipamentsWidget extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   width: 70,
                   height: 50,
-                  child: DropdownButton<int?>(
+                  child: DropdownButton<int>(
                     menuWidth: 100,
-                    value: _availableValueVehicles,
+                    value: context.watch<AvailablesEquipamentsProvider>().availableValueVehicles,
                     onChanged: (int? newValue) {
-                      setState(() {
-                        _availableValueVehicles = newValue;
-                      });
+                        if(newValue != null){
+                          context.read<AvailablesEquipamentsProvider>().setavailableVehiclesSelected(newValue);
+                        }
                     },
-                    items: numbers.map((int element) {
+                    items: availables.numbers.map((int element) {
                       return DropdownMenuItem<int>(
                         value: element,
                         child: Text(element.toString()),
@@ -44,14 +44,13 @@ class AvailablesEquipamentsWidget extends StatelessWidget {
                   height: 50,
                   child: DropdownButton<int?>(
                     menuWidth: 100,
-                    value: _availableValuePipas,
+                    value: context.watch<AvailablesEquipamentsProvider>().availableValuePipas,
                     onChanged: (int? newValue) {
-                      setState(() {
-                        _availableValuePipas ??= 0;
-                        _availableValuePipas = newValue;
-                      });
+                      if(newValue != null){
+                        context.read<AvailablesEquipamentsProvider>().setavailablePipasSelected(newValue);
+                      }
                     },
-                    items: numbers.map((int element) {
+                    items: availables.numbers.map((int element) {
                       return DropdownMenuItem<int>(
                         value: element,
                         child: Text(element.toString()),

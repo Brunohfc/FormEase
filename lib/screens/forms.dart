@@ -5,7 +5,7 @@ import 'package:relatorio/model/providers/preventivaProvider.dart';
 
 import '../model/providers/datePickerProvider.dart';
 import 'formatted_text.dart';
-import '../model/providers/availlableEquipamentsProvider.dart';
+import '../model/providers/availableEquipamentsProvider.dart';
 
 class Forms extends StatefulWidget {
   const Forms({super.key});
@@ -36,7 +36,6 @@ class _FormsState extends State<Forms> {
             height: 5,
           ),
           Container(),
-          AvailablesEquipamentsProvider(),
           SizedBox(height: 20,),
           ElevatedButton(
               style: ElevatedButton.styleFrom(

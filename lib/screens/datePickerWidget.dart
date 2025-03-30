@@ -12,8 +12,6 @@ class DatePickerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    late WorkingHour? shifts = WorkingHour.A;
-    late LettersChar? selectedValue = LettersChar.A;
 
     return Consumer<DatePickerProvider>(
 

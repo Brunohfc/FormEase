@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:relatorio/screens/accidentsWidget.dart';
+import 'package:relatorio/screens/availablesEquipamentsWidget.dart';
 import 'package:relatorio/screens/corretiveWidget.dart';
 import 'package:relatorio/screens/datePickerWidget.dart';
 import 'package:relatorio/screens/preventivaWidget.dart';
@@ -39,7 +40,8 @@ class _MyAppBarWidgetState extends State<MyAppBarWidget> {
             AccidentsWidget(),
             PreventiveWidget(),
             Corretivewidget(),
-            DatePickerWidget()
+            DatePickerWidget(),
+            AvailablesEquipamentsWidget()
           ],
         ),
       ),
