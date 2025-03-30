@@ -46,7 +46,6 @@ class _MyAppBarWidgetState extends State<MyAppBarWidget> {
               Corretivewidget(),
               AccidentsWidget(),
               AvailablesEquipamentsWidget(),
-
             ],
           ),
         ),

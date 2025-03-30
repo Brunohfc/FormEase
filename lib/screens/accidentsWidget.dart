@@ -42,56 +42,55 @@ class AccidentsWidget extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                     "- Acidentes")
                 ),
-                // IconButton(
-                //     onPressed: (){
-                //       accidents.toggleExpansion();
-                //     },
-                //     icon: Icon(
-                //         accidents.toggleExpansion() ? Icons.expand_more : Icons.expand_less
-                //     )
-                // )
+                IconButton(
+                    onPressed: (){
+                      accidents.toggleExpansion();
+                    },
+                    icon: Icon(
+                        accidents.isExpanded ? Icons.expand_more : Icons.expand_less
+                    )
+                )
               ],
             ),
-
-            // AnimatedContainer(
-            //   duration: const Duration(milliseconds: 500 ),
-            //   height: accidents.toggleExpansion() ? 300 : 0,
-            //   child: _isExpanded ? Expanded(
-            //     child: ListView.builder(
-            //       shrinkWrap: true,
-            //       itemCount: _controllers.length,
-            //       itemBuilder: (context, index) {
-            //         final controllers = _controllers[index];
-            //         return Card(
-            //           margin: const EdgeInsets.symmetric(vertical: 8.0),
-            //           child: Padding(
-            //             padding: const EdgeInsets.all(16.0),
-            //             child: Column(
-            //               crossAxisAlignment: CrossAxisAlignment.start,
-            //               children: [
-            //                 TextFormField(
-            //                   controller: controllers['title'],
-            //                   decoration: const InputDecoration(
-            //                     labelText: 'Título do Acidente',
-            //                     border: OutlineInputBorder(),
-            //                   ),
-            //                 ),
-            //                 const SizedBox(height: 10),
-            //                 TextFormField(
-            //                   controller: controllers['description'],
-            //                   decoration: const InputDecoration(
-            //                     labelText: 'Descrição do Acidente',
-            //                     border: OutlineInputBorder(),
-            //                   ),
-            //                 ),
-            //               ],
-            //             ),
-            //           ),
-            //         );
-            //       },
-            //     ),
-            //   ) : const SizedBox(height: 10,),
-            // ),
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 500 ),
+              height: accidents.isExpanded ? 300 : 0,
+              child: accidents.isExpanded ? Expanded(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: accidents.accidentsCount(),
+                  itemBuilder: (context, index) {
+                    final controllers = accidents.controllers[index];
+                    return Card(
+                      margin: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextFormField(
+                              controller: controllers['title'],
+                              decoration: const InputDecoration(
+                                labelText: 'Título do Acidente',
+                                border: OutlineInputBorder(),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            TextFormField(
+                              controller: controllers['description'],
+                              decoration: const InputDecoration(
+                                labelText: 'Descrição do Acidente',
+                                border: OutlineInputBorder(),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ) : const SizedBox(height: 10,),
+            ),
           ],
         );
       }

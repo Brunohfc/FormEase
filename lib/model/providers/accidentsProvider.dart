@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 
 class AccidentsProvider extends ChangeNotifier {
 
-  final List<Map<String, TextEditingController>> _controllers = [];
-  bool _isExpanded = false;
+  final List<Map<String, TextEditingController>> controllers = [];
+  bool isExpanded = false;
   bool isDisableButtonState = true;
 
-
+  
   createAccidents() {
-
-    _controllers.add({
+    controllers.add({
       'title': TextEditingController(),
       'description': TextEditingController()
     });
@@ -17,19 +16,19 @@ class AccidentsProvider extends ChangeNotifier {
   }
 
   removeAccidents() {
-
-    _controllers.removeLast();
+    controllers.removeLast();
     notifyListeners();
 
   }
 
   void toggleExpansion() {
-    _isExpanded = !_isExpanded;
+    isExpanded = !isExpanded;
     notifyListeners();
+
   }
 
   int accidentsCount() {
-    return _controllers.length;
+    return controllers.length;
   }
 
 }
