@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 
-class PreventiveVehicle extends ChangeNotifier {
+class PreventiveVehicleProvider extends ChangeNotifier {
 
   final List<Map<String, TextEditingController>> controllers = [];
   bool _isExpanded = false;

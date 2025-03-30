@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:relatorio/model/providers/accidentsProvider.dart';
-import 'package:relatorio/screens/corretiva.dart';
+import 'package:relatorio/model/providers/corretiveProvider.dart';
 import 'package:relatorio/model/providers/preventivaProvider.dart';
 
-import 'date_picker.dart';
+import '../model/providers/datePickerProvider.dart';
 import 'formatted_text.dart';
-import 'numberPickerAvaillable.dart';
+import '../model/providers/availlableEquipamentsProvider.dart';
 
 class Forms extends StatefulWidget {
   const Forms({super.key});
@@ -36,9 +36,7 @@ class _FormsState extends State<Forms> {
             height: 5,
           ),
           Container(),
-          DatePickerScreen(),
-          CorrectiveVehicle(),
-          Availables(),
+          AvailablesEquipamentsProvider(),
           SizedBox(height: 20,),
           ElevatedButton(
               style: ElevatedButton.styleFrom(

@@ -1,64 +1,66 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:relatorio/model/providers/corretiveProvider.dart';
 
-import '../model/providers/preventivaProvider.dart';
-
-class PreventiveWidget extends StatelessWidget {
-  const PreventiveWidget({super.key});
+class Corretivewidget extends StatelessWidget {
+  const Corretivewidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return
-      Consumer<PreventiveVehicleProvider>(
-        builder: (context, preventive, child){
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
+    return Consumer<CorrectiveVehicleProvider>(
+        builder: (context, corretive, child) {
+          return Padding(padding: const EdgeInsets.all(8),
             child: Column(
               children: [
                 Row(
                   children: [
-                    Text("Qtd Preventiva ${preventive.preventiveLength()}"),
+                    Text("Qtd Corretiva ${corretive.corretiveCount()}"),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        fixedSize: Size(130, 0),
-                        backgroundColor: Colors.green,
-                      ),
-                      onPressed: preventive.createField,
-                      child: const Text(
-                          style: TextStyle(color: Colors.white), '+ Preventiva'),
+                        style: ElevatedButton.styleFrom(
+                            fixedSize: Size(130, 0),
+                            backgroundColor: Colors.green
+                        ),
+                        onPressed: corretive.createCorrective,
+                        child: const Text("+ Corretiva",
+                          style: TextStyle(color: Colors.white),
+                        )
                     ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          fixedSize: Size(130, 0),
-                          backgroundColor: Colors.redAccent,
+                            fixedSize: Size(130, 0),
+                            backgroundColor: Colors.redAccent
                         ),
-                        onPressed: preventive.removeField,
-                        child: Text(
-                            style: TextStyle(color: Colors.white), "- Preventiva")),
+                        onPressed: corretive.removeCorrective,
+                        child: const Text("- Corretiva",
+                          style: TextStyle(color: Colors.white),
+                        )
+                    ),
                     // IconButton(
                     //     onPressed: () {
+                    //         _isExpanded = !_isExpanded;
                     //
                     //     },
-                    //     icon:
-                    //     Icon(preventive.isExpanded() ? Icons.expand_more : Icons.expand_less)
+                    //     icon: Icon(
+                    //         _isExpanded ? Icons.expand_more : Icons.expand_less
+                    //     )
                     // )
+
                   ],
                 ),
                 // AnimatedContainer(
                 //   duration: const Duration(milliseconds: 500),
-                //   height: preventive.isExpanded() ? 300 : 0,
-                //   child: preventive.isExpanded()
-                //       ? Expanded(
+                //   height: _isExpanded ? 300 : 0,
+                //   child: _isExpanded ? Expanded(
                 //     child: ListView.builder(
                 //       shrinkWrap: true,
-                //       itemCount: preventive.preventiveLength(),
+                //       itemCount: _controllers.length,
                 //       itemBuilder: (context, index) {
-                //         final controllers = preventive.controllers[index];
+                //         final controllers = _controllers[index];
                 //         return Card(
                 //           margin: const EdgeInsets.symmetric(vertical: 8.0),
                 //           child: Padding(
@@ -87,16 +89,13 @@ class PreventiveWidget extends StatelessWidget {
                 //         );
                 //       },
                 //     ),
-                //   )
-                //       : const SizedBox(
-                //     height: 10,
-                //   ),
+                //   ) : const SizedBox(height: 10,),
                 // ),
               ],
             ),
           );
         }
-      );
-
-  }
+        );
+    }
 }
+

@@ -9,7 +9,7 @@ class AccidentsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Consumer<Accidents>(
+    return Consumer<AccidentsProvider>(
       builder: (context, accidents, child){
         return Padding(
           padding: const EdgeInsets.all(8.0),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Accidents extends ChangeNotifier {
+class AccidentsProvider extends ChangeNotifier {
 
   final List<Map<String, TextEditingController>> _controllers = [];
   bool _isExpanded = false;

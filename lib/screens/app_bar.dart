@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:relatorio/screens/accidentsWidget.dart';
+import 'package:relatorio/screens/corretiveWidget.dart';
+import 'package:relatorio/screens/datePickerWidget.dart';
 import 'package:relatorio/screens/preventivaWidget.dart';
 
+import '../model/providers/datePickerProvider.dart';
 import 'forms.dart';
 
 class MyAppBarWidget extends StatefulWidget {
@@ -34,7 +37,9 @@ class _MyAppBarWidgetState extends State<MyAppBarWidget> {
         body: ListView(
           children: [
             AccidentsWidget(),
-            PreventiveWidget()
+            PreventiveWidget(),
+            Corretivewidget(),
+            DatePickerWidget()
           ],
         ),
       ),

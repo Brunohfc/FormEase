@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:relatorio/model/providers/accidentsProvider.dart';
+import 'package:relatorio/model/providers/corretiveProvider.dart';
 import 'package:relatorio/model/providers/preventivaProvider.dart';
 import 'package:relatorio/screens/app_bar.dart';
+
+import 'model/providers/datePickerProvider.dart';
 
 
 void main() {
 
   runApp(MultiProvider(providers: [
-    ChangeNotifierProvider<Accidents>(create: (_) => Accidents()),
-    ChangeNotifierProvider<PreventiveVehicle>(create: (_) => PreventiveVehicle())
+    ChangeNotifierProvider<AccidentsProvider>(create: (_) => AccidentsProvider()),
+    ChangeNotifierProvider<PreventiveVehicleProvider>(create: (_) => PreventiveVehicleProvider()),
+    ChangeNotifierProvider(create: (_) => CorrectiveVehicleProvider()),
+    ChangeNotifierProvider(create: (_) => DatePickerProvider())
   ],
     child: MyApp(),
   ) );
