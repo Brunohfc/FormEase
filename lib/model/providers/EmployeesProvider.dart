@@ -1,11 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:relatorio/model/providers/accidentsProvider.dart';
-import 'package:relatorio/model/providers/corretiveProvider.dart';
-import 'package:relatorio/model/providers/preventivaProvider.dart';
-
-import 'datePickerProvider.dart';
-import '../../screens/formatted_text.dart';
-import 'availableEquipamentsProvider.dart';
 
 class EmployessProvider extends ChangeNotifier {
 

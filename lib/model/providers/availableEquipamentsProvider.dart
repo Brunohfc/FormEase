@@ -6,6 +6,7 @@ class AvailablesEquipamentsProvider extends ChangeNotifier {
 
   int? availableValueVehicles;
   int? availableValuePipas;
+
   final List<int> numbers = List.generate(50, (index) => index);
 
   

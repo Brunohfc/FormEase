@@ -24,6 +24,7 @@ class AvailablesEquipamentsWidget extends StatelessWidget {
                   value: context.watch<AvailablesEquipamentsProvider>().availableValueVehicles,
                   onChanged: (int? newValue) {
                       if(newValue != null){
+
                         context.read<AvailablesEquipamentsProvider>().setavailableVehiclesSelected(newValue);
                       }
                   },

@@ -39,57 +39,57 @@ class Corretivewidget extends StatelessWidget {
                         style: TextStyle(color: Colors.white),
                       )
                   ),
-                  // IconButton(
-                  //     onPressed: () {
-                  //         _isExpanded = !_isExpanded;
-                  //
-                  //     },
-                  //     icon: Icon(
-                  //         _isExpanded ? Icons.expand_more : Icons.expand_less
-                  //     )
-                  // )
+                  IconButton(
+                      onPressed: () {
+                          corretive.toggleIsExpanded();
+
+                      },
+                      icon: Icon(
+                          corretive.isExpanded ? Icons.expand_more : Icons.expand_less
+                      )
+                  )
 
                 ],
               ),
-              // AnimatedContainer(
-              //   duration: const Duration(milliseconds: 500),
-              //   height: _isExpanded ? 300 : 0,
-              //   child: _isExpanded ? Expanded(
-              //     child: ListView.builder(
-              //       shrinkWrap: true,
-              //       itemCount: _controllers.length,
-              //       itemBuilder: (context, index) {
-              //         final controllers = _controllers[index];
-              //         return Card(
-              //           margin: const EdgeInsets.symmetric(vertical: 8.0),
-              //           child: Padding(
-              //             padding: const EdgeInsets.all(16.0),
-              //             child: Column(
-              //               crossAxisAlignment: CrossAxisAlignment.start,
-              //               children: [
-              //                 TextFormField(
-              //                   controller: controllers['title'],
-              //                   decoration: const InputDecoration(
-              //                     labelText: 'Título do Veículo',
-              //                     border: OutlineInputBorder(),
-              //                   ),
-              //                 ),
-              //                 const SizedBox(height: 10),
-              //                 TextFormField(
-              //                   controller: controllers['description'],
-              //                   decoration: const InputDecoration(
-              //                     labelText: 'Descrição do Veículo',
-              //                     border: OutlineInputBorder(),
-              //                   ),
-              //                 ),
-              //               ],
-              //             ),
-              //           ),
-              //         );
-              //       },
-              //     ),
-              //   ) : const SizedBox(height: 10,),
-              // ),
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 500),
+                height: corretive.isExpanded ? 250 : 0,
+                child: corretive.isExpanded ? Expanded(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: corretive.corretiveCount(),
+                    itemBuilder: (context, index) {
+                      final controllers = corretive.controllers[index];
+                      return Card(
+                        margin: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              TextFormField(
+                                controller: controllers['title'],
+                                decoration: const InputDecoration(
+                                  labelText: 'Título do Veículo',
+                                  border: OutlineInputBorder(),
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              TextFormField(
+                                controller: controllers['description'],
+                                decoration: const InputDecoration(
+                                  labelText: 'Descrição do Veículo',
+                                  border: OutlineInputBorder(),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ) : const SizedBox(height: 10,),
+              ),
             ],
           );
         }

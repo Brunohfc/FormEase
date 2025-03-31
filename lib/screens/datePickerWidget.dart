@@ -36,7 +36,7 @@ class DatePickerWidget extends StatelessWidget {
                   height: 50,
                   margin: EdgeInsets.only(left: 10),
                   decoration: BoxDecoration(
-                      color: Colors.amber, borderRadius: BorderRadius.circular(10)),
+                       borderRadius: BorderRadius.circular(10)),
                   child: DropdownButton<LettersChar>(
                     value: context.watch<DatePickerProvider>().selectedValue,
                     onChanged: (LettersChar? letter) {
@@ -56,7 +56,7 @@ class DatePickerWidget extends StatelessWidget {
                   height: 50,
                   margin: EdgeInsets.only(left: 10),
                   decoration: BoxDecoration(
-                      color: Colors.amber, borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10)),
                   child: DropdownButton<WorkingHour>(
                       value: context.watch<DatePickerProvider>().shifts,
                       onChanged: (WorkingHour? shift) {

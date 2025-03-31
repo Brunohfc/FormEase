@@ -4,11 +4,15 @@ import 'package:flutter/material.dart';
 
 class PreventiveVehicleProvider extends ChangeNotifier {
 
-  final List<Map<String, TextEditingController>> controllers = [];
+  final List<Map<String, TextEditingController>> _controllers = [];
   bool _isExpanded = false;
 
+  get isExpanded => _isExpanded;
+  get controllers => _controllers;
+  List<Map<String, TextEditingController>> get preventiveVehicle => _controllers;
+
   createField() {
-      controllers.add({
+      _controllers.add({
         'title': TextEditingController(),
         'description': TextEditingController(),
       });
@@ -16,16 +20,17 @@ class PreventiveVehicleProvider extends ChangeNotifier {
   }
 
   removeField() {
-      controllers.removeLast();
+      _controllers.removeLast();
       notifyListeners();
   }
 
   int preventiveLength(){
-    return controllers.length;
+    return _controllers.length;
 
   }
 
-  isExpanded(){
-
+  void toggleIsExpanded(){
+    _isExpanded = !_isExpanded;
+    notifyListeners();
   }
 }

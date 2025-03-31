@@ -21,14 +21,11 @@ class Employeeswidget extends StatelessWidget {
                   controller: employees.supervisorNameController,
                   onChanged: (value) => employees.setSupervisorName(value),
                 ),
-                Text(employees.supervisorName),
-
                 TextFormField(
                   decoration: InputDecoration(helperText: employees.hintTechnicalName),
                   controller: employees.technicalNameController,
                   onChanged: (value) => employees.setTechnicalName(value),
                 ),
-                Text(employees.technicalName)
               ],
             ),
           ),

@@ -54,7 +54,7 @@ class AccidentsWidget extends StatelessWidget {
             ),
             AnimatedContainer(
               duration: const Duration(milliseconds: 500 ),
-              height: accidents.isExpanded ? 300 : 0,
+              height: accidents.isExpanded ? 250 : 0,
               child: accidents.isExpanded ? Expanded(
                 child: ListView.builder(
                   shrinkWrap: true,

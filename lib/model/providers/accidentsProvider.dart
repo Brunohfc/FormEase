@@ -6,7 +6,7 @@ class AccidentsProvider extends ChangeNotifier {
   bool isExpanded = false;
   bool isDisableButtonState = true;
 
-  
+  List<Map<String,TextEditingController>> get accidents => controllers;
   createAccidents() {
     controllers.add({
       'title': TextEditingController(),
