@@ -51,41 +51,45 @@ class PreventiveWidget extends StatelessWidget {
                 duration: const Duration(milliseconds: 500),
                 height: preventive.isExpanded ? 250 : 0,
                 child: preventive.isExpanded
-                    ? Expanded(
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: preventive.preventiveLength(),
-                    itemBuilder: (context, index) {
-                      final controllers = preventive.controllers[index];
-                      return Card(
-                        margin: const EdgeInsets.symmetric(vertical: 8.0),
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              TextFormField(
-                                controller: controllers['title'],
-                                decoration: const InputDecoration(
-                                  labelText: 'Título do Veículo',
-                                  border: OutlineInputBorder(),
-                                ),
+                    ? Column(
+                      children: [
+                        Expanded(
+                            child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: preventive.preventiveLength(),
+                        itemBuilder: (context, index) {
+                          final controllers = preventive.controllers[index];
+                          return Card(
+                            margin: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  TextFormField(
+                                    controller: controllers['title'],
+                                    decoration: const InputDecoration(
+                                      labelText: 'Equipamento',
+                                      border: OutlineInputBorder(),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  TextFormField(
+                                    controller: controllers['description'],
+                                    decoration: const InputDecoration(
+                                      labelText: 'Descrição do Equipamento',
+                                      border: OutlineInputBorder(),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              const SizedBox(height: 10),
-                              TextFormField(
-                                controller: controllers['description'],
-                                decoration: const InputDecoration(
-                                  labelText: 'Descrição do Veículo',
-                                  border: OutlineInputBorder(),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                )
+                            ),
+                          );
+                        },
+                                          ),
+                                        ),
+                      ],
+                    )
                     : const SizedBox(
                   height: 10,
                 ),

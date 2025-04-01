@@ -15,7 +15,7 @@ class AccidentsWidget extends StatelessWidget {
           children: [
             Row(
               children: [
-                Text("Qtd Acidentes ${accidents.accidentsCount()}"),
+                Text("Qtd Incidentes ${accidents.accidentsCount()}"),
               ],
             ),
             Row(
@@ -29,7 +29,7 @@ class AccidentsWidget extends StatelessWidget {
                   onPressed: accidents.createAccidents,
                   child: const Text(
                       style:TextStyle(color: Colors.white),
-                      '+ Acidentes'
+                      '+ Incidentes'
                   ),
                 ),
                 ElevatedButton(
@@ -40,7 +40,7 @@ class AccidentsWidget extends StatelessWidget {
                     ),
                     onPressed: accidents.removeAccidents , child: Text(
                     style: TextStyle(color: Colors.white),
-                    "- Acidentes")
+                    "- Incidentes")
                 ),
                 IconButton(
                     onPressed: (){
@@ -55,40 +55,44 @@ class AccidentsWidget extends StatelessWidget {
             AnimatedContainer(
               duration: const Duration(milliseconds: 500 ),
               height: accidents.isExpanded ? 250 : 0,
-              child: accidents.isExpanded ? Expanded(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: accidents.accidentsCount(),
-                  itemBuilder: (context, index) {
-                    final controllers = accidents.controllers[index];
-                    return Card(
-                      margin: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            TextFormField(
-                              controller: controllers['title'],
-                              decoration: const InputDecoration(
-                                labelText: 'Título do Acidente',
-                                border: OutlineInputBorder(),
-                              ),
+              child: accidents.isExpanded ? Column(
+                children: [
+                  Expanded(
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: accidents.accidentsCount(),
+                      itemBuilder: (context, index) {
+                        final controllers = accidents.controllers[index];
+                        return Card(
+                          margin: const EdgeInsets.symmetric(vertical: 8.0),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                TextFormField(
+                                  controller: controllers['title'],
+                                  decoration: const InputDecoration(
+                                    labelText: 'Relato de Segurança',
+                                    border: OutlineInputBorder(),
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                TextFormField(
+                                  controller: controllers['description'],
+                                  decoration: const InputDecoration(
+                                    labelText: 'Descrição do Relato de Segurança',
+                                    border: OutlineInputBorder(),
+                                  ),
+                                ),
+                              ],
                             ),
-                            const SizedBox(height: 10),
-                            TextFormField(
-                              controller: controllers['description'],
-                              decoration: const InputDecoration(
-                                labelText: 'Descrição do Acidente',
-                                border: OutlineInputBorder(),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
               ) : const SizedBox(height: 10,),
             ),
           ],

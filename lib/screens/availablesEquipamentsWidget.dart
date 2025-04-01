@@ -20,13 +20,14 @@ class AvailablesEquipamentsWidget extends StatelessWidget {
                 width: 70,
                 height: 50,
                 child: DropdownButton<int>(
+
                   menuWidth: 100,
                   value: context.watch<AvailablesEquipamentsProvider>().availableValueVehicles,
                   onChanged: (int? newValue) {
                       if(newValue != null){
-
                         context.read<AvailablesEquipamentsProvider>().setavailableVehiclesSelected(newValue);
                       }
+                      context.read<AvailablesEquipamentsProvider>().availableValueVehicles = 0;
                   },
                   items: availables.numbers.map((int element) {
                     return DropdownMenuItem<int>(

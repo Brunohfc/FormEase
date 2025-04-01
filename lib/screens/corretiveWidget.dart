@@ -9,52 +9,49 @@ class Corretivewidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<CorrectiveVehicleProvider>(
         builder: (context, corretive, child) {
-          return Column(
+      return Column(
+        children: [
+          Row(
             children: [
-              Row(
-                children: [
-                  Text("Qtd Corretiva ${corretive.corretiveCount()}"),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          fixedSize: Size(130, 0),
-                          backgroundColor: Colors.green
-                      ),
-                      onPressed: corretive.createCorrective,
-                      child: const Text("+ Corretiva",
-                        style: TextStyle(color: Colors.white),
-                      )
-                  ),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          fixedSize: Size(130, 0),
-                          backgroundColor: Colors.redAccent
-                      ),
-                      onPressed: corretive.removeCorrective,
-                      child: const Text("- Corretiva",
-                        style: TextStyle(color: Colors.white),
-                      )
-                  ),
-                  IconButton(
-                      onPressed: () {
-                          corretive.toggleIsExpanded();
-
-                      },
-                      icon: Icon(
-                          corretive.isExpanded ? Icons.expand_more : Icons.expand_less
-                      )
-                  )
-
-                ],
-              ),
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 500),
-                height: corretive.isExpanded ? 250 : 0,
-                child: corretive.isExpanded ? Expanded(
+              Text("Qtd Corretiva ${corretive.corretiveCount()}"),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      fixedSize: Size(130, 0), backgroundColor: Colors.green),
+                  onPressed: corretive.createCorrective,
+                  child: const Text(
+                    "+ Corretiva",
+                    style: TextStyle(color: Colors.white),
+                  )),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      fixedSize: Size(130, 0),
+                      backgroundColor: Colors.redAccent),
+                  onPressed: corretive.removeCorrective,
+                  child: const Text(
+                    "- Corretiva",
+                    style: TextStyle(color: Colors.white),
+                  )),
+              IconButton(
+                  onPressed: () {
+                    corretive.toggleIsExpanded();
+                  },
+                  icon: Icon(corretive.isExpanded
+                      ? Icons.expand_more
+                      : Icons.expand_less))
+            ],
+          ),
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 500),
+            height: corretive.isExpanded ? 250 : 0, // Define a altura da animação
+            child: corretive.isExpanded
+                ? Column( // Usar Column para organizar o layout corretamente
+              children: [
+                Expanded( // Garante que o ListView não cause erro
                   child: ListView.builder(
                     shrinkWrap: true,
                     itemCount: corretive.corretiveCount(),
@@ -70,7 +67,7 @@ class Corretivewidget extends StatelessWidget {
                               TextFormField(
                                 controller: controllers['title'],
                                 decoration: const InputDecoration(
-                                  labelText: 'Título do Veículo',
+                                  labelText: 'Equipamento',
                                   border: OutlineInputBorder(),
                                 ),
                               ),
@@ -78,7 +75,7 @@ class Corretivewidget extends StatelessWidget {
                               TextFormField(
                                 controller: controllers['description'],
                                 decoration: const InputDecoration(
-                                  labelText: 'Descrição do Veículo',
+                                  labelText: 'Descrição do Equipamento',
                                   border: OutlineInputBorder(),
                                 ),
                               ),
@@ -88,12 +85,14 @@ class Corretivewidget extends StatelessWidget {
                       );
                     },
                   ),
-                ) : const SizedBox(height: 10,),
-              ),
-            ],
-          );
-        }
-        );
+                ),
+              ],
+            )
+                : const SizedBox.shrink(), // Esconde corretamente quando recolhido
+          ),
+        ],
+      );
     }
+    );
+  }
 }
-

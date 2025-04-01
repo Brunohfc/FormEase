@@ -29,7 +29,7 @@ class _MyAppBarWidgetState extends State<MyAppBarWidget> {
               SizedBox(
                   width: 100,
                   height: 100,
-                  child: Image.asset("assets/images/vale.png")),
+              ),
               Center(child: Text("Criar Relatório"))
             ],
           ),
@@ -41,9 +41,9 @@ class _MyAppBarWidgetState extends State<MyAppBarWidget> {
             children: [
               Employeeswidget(),
               DatePickerWidget(),
+              AccidentsWidget(),
               PreventiveWidget(),
               Corretivewidget(),
-              AccidentsWidget(),
               AvailablesEquipamentsWidget(),
               ButtonNav(),
             ],
