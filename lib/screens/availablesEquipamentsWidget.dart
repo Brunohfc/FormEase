@@ -27,7 +27,7 @@ class AvailablesEquipamentsWidget extends StatelessWidget {
                       if(newValue != null){
                         context.read<AvailablesEquipamentsProvider>().setavailableVehiclesSelected(newValue);
                       }
-                      context.read<AvailablesEquipamentsProvider>().availableValueVehicles = 0;
+                      context.read<AvailablesEquipamentsProvider>().availableValueVehicles;
                   },
                   items: availables.numbers.map((int element) {
                     return DropdownMenuItem<int>(

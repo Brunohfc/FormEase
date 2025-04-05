@@ -27,13 +27,13 @@ class FormattedTextWidget extends StatelessWidget {
     for(var item in preventivaProvider.preventiveVehicle){
         String title = item['title']?.text ?? "";
         String description = item['description']?.text ?? "";
-        preventives += "\n\t🔵 Título: $title\n\t🔵 Descrição: $description";
+        preventives += "\n\t🔵 Título: $title\n\t🔵 Descrição: $description\n";
     }
 
     for(var item in corretiveProvider.corretive){
       String title = item['title']?.text ?? "";
       String description = item['description']?.text ?? "";
-      corretives += "\n\t🟠 Título: $title\n\t🟠 Descrição: $description";
+      corretives += "\n\t🟠 Título: $title\n\t🟠 Descrição: $description\n";
     }
 
     for(var item in accidentsProvider.accidents){
@@ -105,7 +105,7 @@ class FormattedTextWidget extends StatelessWidget {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: const Text('Go back!'),
+                        child: const Text('Voltar'),
                       ),
                     ],
                   ),
