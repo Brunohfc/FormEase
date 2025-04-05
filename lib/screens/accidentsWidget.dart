@@ -71,6 +71,8 @@ class AccidentsWidget extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 TextFormField(
+                                  keyboardType: TextInputType.multiline,
+                                  maxLines: null,
                                   controller: controllers['title'],
                                   decoration: const InputDecoration(
                                     labelText: 'Relato de Segurança',
@@ -79,6 +81,8 @@ class AccidentsWidget extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 10),
                                 TextFormField(
+                                  keyboardType: TextInputType.multiline,
+                                  maxLines: null,
                                   controller: controllers['description'],
                                   decoration: const InputDecoration(
                                     labelText: 'Descrição do Relato de Segurança',

@@ -60,14 +60,15 @@ class FormattedTextWidget extends StatelessWidget {
     ----------------------------------------------------
     Detalhes
     🔵Equipamentos em Prenvetiva:
-      ${preventives.isNotEmpty ? preventives : "🔵 Nenhuma Preventiva"}
+    ${preventives.isNotEmpty ? preventives : "🔵 Nenhuma Preventiva\n"}
       ----------------------------------------------------
     🟠 Corretivas
     ${corretives.isNotEmpty ? corretives : "🟠 Nenhuma Corretiva\n"}
     ----------------------------------------------------
     🔴Acidentes
-    ${accidents.isNotEmpty ? accidents : "\t\t🔴 Nenhum acidente\n"}
-      ----------------------------------------------------
+    ${accidents.isNotEmpty ? accidents : "🔴 Nenhum acidente\n"}
+  
+    ----------------------------------------------------
     """;
 
     return Scaffold(
