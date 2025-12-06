@@ -24,7 +24,7 @@ class PreventiveWidget extends StatelessWidget {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       fixedSize: Size(130, 0),
-                      backgroundColor: Colors.green,
+                      backgroundColor: const Color(0xFF3CB5E6),
                     ),
                     onPressed: preventive.createField,
                     child: const Text(

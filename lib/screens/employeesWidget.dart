@@ -17,11 +17,13 @@ class Employeeswidget extends StatelessWidget {
               scrollDirection: Axis.vertical,
               children: <Widget>[
                 TextFormField(
+                  style: TextStyle(fontWeight: FontWeight.bold),
                   decoration: InputDecoration(helperText: employees.hintSupervisorName),
                   controller: employees.supervisorNameController,
                   onChanged: (value) => employees.setSupervisorName(value),
                 ),
                 TextFormField(
+                  style: TextStyle(fontWeight: FontWeight.bold),
                   decoration: InputDecoration(helperText: employees.hintTechnicalName),
                   controller: employees.technicalNameController,
                   onChanged: (value) => employees.setTechnicalName(value),
