@@ -23,20 +23,28 @@ class FormattedTextWidget extends StatelessWidget {
     String corretives = "";
     String accidents = "";
 
-
-    for(var item in preventivaProvider.preventiveVehicle){
-        String title = item['title']?.text ?? "";
-        String description = item['description']?.text ?? "";
-        preventives += "\n\t🔵 Título: $title\n\t🔵 Descrição: $description\n";
+    for (final entry in preventivaProvider.entries) {
+      final selectedCode = entry.selectedCode;
+      final description = entry.descriptionController.text;
+      String title = "Não selecionado";
+      if (selectedCode != null) {
+        for (final vehicle in preventivaProvider.preventiveVehicles) {
+          if (vehicle.codigo == selectedCode) {
+            title = "${vehicle.codigo} - ${vehicle.setor}";
+            break;
+          }
+        }
+      }
+      preventives += "\n\t🔵 Título: $title\n\t🔵 Descrição: $description\n";
     }
 
-    for(var item in corretiveProvider.corretive){
+    for (var item in corretiveProvider.corretive) {
       String title = item['title']?.text ?? "";
       String description = item['description']?.text ?? "";
       corretives += "\n\t🟠 Título: $title\n\t🟠 Descrição: $description\n";
     }
 
-    for(var item in accidentsProvider.accidents){
+    for (var item in accidentsProvider.accidents) {
       String title = item['title']?.text ?? "";
       String desciption = item['description']?.text ?? "";
       accidents += "\n\t🔴 Título: $title\n\t🔴 Descrição: $desciption\n";
@@ -72,47 +80,47 @@ class FormattedTextWidget extends StatelessWidget {
     """;
 
     return Scaffold(
-
-      appBar: AppBar(title: const Text("Resumo do Relatório"),
-      backgroundColor: Color.fromARGB(52, 35, 156, 109),
+      appBar: AppBar(
+        title: const Text("Resumo do Relatório"),
+        backgroundColor: Color.fromARGB(52, 35, 156, 109),
       ),
-      body:Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Center(
-              child: Container(
-                height: 650,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black),
-                  borderRadius: BorderRadius.circular(8)
-                ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Text(
-                        report,
-                        style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500 ),
-                      ),
-                      ElevatedButton(
-                          onPressed: (){
-                            Clipboard.setData(ClipboardData(text: report));
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text("Relatório copiado para área de transferência"))
-                            );
-                          },
-                          child: Text("Copiar relatório")
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Text('Voltar'),
-                      ),
-                    ],
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Center(
+          child: Container(
+            height: 650,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    report,
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
-                ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Clipboard.setData(ClipboardData(text: report));
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Relatório copiado para área de transferência")),
+                      );
+                    },
+                    child: Text("Copiar relatório"),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text('Voltar'),
+                  ),
+                ],
               ),
             ),
           ),
-        );
+        ),
+      ),
+    );
   }
 }
