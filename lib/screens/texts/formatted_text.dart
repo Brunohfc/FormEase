@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:relatorio/model/providers/EmployeesProvider.dart';
 import 'package:relatorio/model/providers/accidentsProvider.dart';
 import 'package:relatorio/model/providers/availableEquipamentsProvider.dart';
-import 'package:relatorio/model/providers/corretiveProvider.dart';
+import 'package:relatorio/model/providers/correctiveProvider.dart';
 import 'package:relatorio/model/providers/datePickerProvider.dart';
 import 'package:relatorio/model/providers/preventivaProvider.dart';
 
@@ -70,10 +70,9 @@ class FormattedTextWidget extends StatelessWidget {
     ----------------------------------------------------
     Equipamentos
     🟢 Equipamentos aptos: ${availablesEquipamentsProvider.availableValueVehicles}
-    🟢 Pipas aptos: ${availablesEquipamentsProvider.availableValuePipas}
     🔵 Preventiva: ${preventivaProvider.preventiveLength()}
     🟠 Corretiva: ${corretiveProvider.corretiveCount()}
-    🔴 Acidentes: ${accidentsProvider.accidentsCount()}
+    🔴 Incidentes: ${accidentsProvider.accidentsCount()}
     ----------------------------------------------------
     Detalhes
     🔵Equipamentos em Prenvetiva:
@@ -82,7 +81,7 @@ class FormattedTextWidget extends StatelessWidget {
     🟠 Corretivas
     ${corretives.isNotEmpty ? corretives : "🟠 Nenhuma Corretiva\n"}
     ----------------------------------------------------
-    🔴Acidentes
+    🔴Incidentes
     ${accidents.isNotEmpty ? accidents : "🔴 Nenhum acidente\n"}
   
     ----------------------------------------------------

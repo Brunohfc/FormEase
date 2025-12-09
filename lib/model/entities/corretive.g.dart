@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'corretive.dart';
+part of 'corrective.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator

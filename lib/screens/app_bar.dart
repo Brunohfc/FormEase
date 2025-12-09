@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:relatorio/screens/accidentsWidget.dart';
 import 'package:relatorio/screens/availablesEquipamentsWidget.dart';
 import 'package:relatorio/screens/texts/buttonNavFormatedText.dart';
-import 'package:relatorio/screens/corretiveWidget.dart';
+import 'package:relatorio/screens/correctiveWidget.dart';
 import 'package:relatorio/screens/datePickerWidget.dart';
 import 'package:relatorio/screens/employeesWidget.dart';
 import 'package:relatorio/screens/preventivaWidget.dart';

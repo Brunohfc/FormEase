@@ -15,8 +15,4 @@ class AvailablesEquipamentsProvider extends ChangeNotifier {
     notifyListeners();
   }
   
-  void setavailablePipasSelected(int pipasSelected){
-    availableValuePipas = pipasSelected;
-    notifyListeners();
-  }
   }

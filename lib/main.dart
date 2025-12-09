@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:relatorio/model/entities/corretive.dart';
+import 'package:relatorio/model/entities/corrective.dart';
 import 'package:relatorio/model/entities/preventive.dart';
 import 'package:relatorio/model/entities/seed/preventive_seed.dart';
-import 'package:relatorio/model/entities/seed/corretive_seed.dart';
+import 'package:relatorio/model/entities/seed/corrective_seed.dart';
 import 'package:relatorio/model/providers/EmployeesProvider.dart';
 import 'package:relatorio/model/providers/accidentsProvider.dart';
 import 'package:relatorio/model/providers/availableEquipamentsProvider.dart';
-import 'package:relatorio/model/providers/corretiveProvider.dart';
+import 'package:relatorio/model/providers/correctiveProvider.dart';
 import 'package:relatorio/model/providers/preventivaProvider.dart';
 import 'package:relatorio/screens/app_bar.dart';
 import 'model/providers/datePickerProvider.dart';

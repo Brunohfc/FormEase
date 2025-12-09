@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:relatorio/model/providers/corretiveProvider.dart';
+import 'package:relatorio/model/providers/correctiveProvider.dart';
 
 class Corretivewidget extends StatelessWidget {
   const Corretivewidget({super.key});

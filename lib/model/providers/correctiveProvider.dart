@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
-import '../entities/corretive.dart';
+import '../entities/corrective.dart';
 
 class CorrectiveFormEntry {
   CorrectiveFormEntry({this.selectedCode, required this.descriptionController});
