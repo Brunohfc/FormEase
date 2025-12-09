@@ -10,13 +10,10 @@ import 'package:relatorio/model/providers/availableEquipamentsProvider.dart';
 import 'package:relatorio/model/providers/corretiveProvider.dart';
 import 'package:relatorio/model/providers/preventivaProvider.dart';
 import 'package:relatorio/screens/app_bar.dart';
-
 import 'model/providers/datePickerProvider.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-
-void main() async{
-
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Hive.registerAdapter(PreventiveAdapter());
@@ -27,27 +24,26 @@ void main() async{
   final corretiveBox = await Hive.openBox<Corretive>('corretives');
   await seedCorretive(corretiveBox);
 
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider<AccidentsProvider>(create: (_) => AccidentsProvider()),
-    ChangeNotifierProvider<PreventiveVehicleProvider>(create: (_) => PreventiveVehicleProvider(preventiveBox)),
-    ChangeNotifierProvider(create: (_) => CorrectiveVehicleProvider()),
-    ChangeNotifierProvider(create: (_) => DatePickerProvider()),
-    ChangeNotifierProvider(create: (_) => AvailablesEquipamentsProvider()),
-    ChangeNotifierProvider(create: (_) => EmployessProvider())
-  ],
-    child: MyApp(),
-  ) );
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<AccidentsProvider>(create: (_) => AccidentsProvider()),
+        ChangeNotifierProvider<PreventiveVehicleProvider>(create: (_) => PreventiveVehicleProvider(preventiveBox)),
+        ChangeNotifierProvider<CorrectiveVehicleProvider>(create: (_) => CorrectiveVehicleProvider(corretiveBox)),
+        ChangeNotifierProvider(create: (_) => DatePickerProvider()),
+        ChangeNotifierProvider(create: (_) => AvailablesEquipamentsProvider()),
+        ChangeNotifierProvider(create: (_) => EmployessProvider()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MyAppBarWidget();
   }
 }
-
-
-

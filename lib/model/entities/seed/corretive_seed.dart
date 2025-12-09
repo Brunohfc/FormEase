@@ -1,6 +1,5 @@
 import 'package:hive/hive.dart';
 import 'package:relatorio/model/entities/corretive.dart';
-import '../preventive.dart';
 
 const Map<String, List<String>> corretiveSeedMap = {
   'GP': [

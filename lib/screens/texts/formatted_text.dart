@@ -38,9 +38,18 @@ class FormattedTextWidget extends StatelessWidget {
       preventives += "\n\t🔵 Título: $title\n\t🔵 Descrição: $description\n";
     }
 
-    for (var item in corretiveProvider.corretive) {
-      String title = item['title']?.text ?? "";
-      String description = item['description']?.text ?? "";
+    for (final entry in corretiveProvider.entries) {
+      final selectedCode = entry.selectedCode;
+      final description = entry.descriptionController.text;
+      String title = "Não selecionado";
+      if (selectedCode != null) {
+        for (final vehicle in corretiveProvider.corretiveVehicles) {
+          if (vehicle.codigo == selectedCode) {
+            title = "${vehicle.codigo} - ${vehicle.setor}";
+            break;
+          }
+        }
+      }
       corretives += "\n\t🟠 Título: $title\n\t🟠 Descrição: $description\n";
     }
 
@@ -82,7 +91,7 @@ class FormattedTextWidget extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Resumo do Relatório"),
-        backgroundColor: Color.fromARGB(52, 35, 156, 109),
+        backgroundColor: const Color.fromARGB(52, 35, 156, 109),
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -98,16 +107,16 @@ class FormattedTextWidget extends StatelessWidget {
                 children: [
                   Text(
                     report,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       Clipboard.setData(ClipboardData(text: report));
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("Relatório copiado para área de transferência")),
+                        const SnackBar(content: Text("Relatório copiado para área de transferência")),
                       );
                     },
-                    child: Text("Copiar relatório"),
+                    child: const Text("Copiar relatório"),
                   ),
                   ElevatedButton(
                     onPressed: () {
